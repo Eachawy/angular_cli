@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../../services/data.service';
 
+import { MaterializeModule } from 'angular2-materialize';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-user',
@@ -37,6 +39,12 @@ export class UserComponent implements OnInit {
     this.dataService.getPosts().subscribe((posts) => {
         this.posts = posts;
     });
+    // test jquery -----------
+    $('ul li a').on('click',function(){
+      alert();
+    });
+    //-----------------------
+
   }
 
   onclick (){

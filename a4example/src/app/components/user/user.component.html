@@ -1,3 +1,23 @@
+<div class="container">
+
+  <ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+  </ul>
+
+</div>
+
+
 <h1>{{name}}</h1>
 <ul>
   <li>Age : {{age}}</li>
@@ -12,27 +32,27 @@
 <div *ngIf=isEdit>
   <h1>Edit User</h1>
   <form>
-    <div>
+    <div class="input-field">
       <label for="name">Name: </label>
       <input type="text" [(ngModel)]='name' name='name'>
     </div>
-    <div>
+    <div class="input-field">
         <label for="age">Age: </label>
         <input type="number" [(ngModel)]='age' name='age'>
     </div>
-    <div>
+    <div class="input-field">
         <label for="emai">Email: </label>
         <input type="text" [(ngModel)]='email' name='email'>
     </div>
-    <div>
+    <div class="input-field">
         <label for="street">Street: </label>
         <input type="text" [(ngModel)]='address.street' name='street'>
     </div>
-    <div>
+    <div class="input-field">
         <label for="city">City: </label>
         <input type="text" [(ngModel)]='address.city' name='city'>
     </div>
-    <div>
+    <div class="input-field">
           <label for="state">State: </label>
           <input type="text" [(ngModel)]='address.state' name='state'>
     </div>
@@ -57,3 +77,6 @@
   <h4>{{post.title}}</h4>
   <div>{{post.body}}</div>
 </div>
+
+
+
