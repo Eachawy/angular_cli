@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../../services/data.service';
 
-import { MaterializeModule } from 'angular2-materialize';
 import * as $ from 'jquery';
 
 @Component({
@@ -12,15 +11,15 @@ import * as $ from 'jquery';
 })
 export class UserComponent implements OnInit {
 
-  name:string;
-  age:number;
-  email:string;
-  address:Address;
-  hobbies:any[];
-  posts:post;
-  isEdit:boolean = false;
+  name: string;
+  age: number;
+  email: string;
+  address: Address;
+  hobbies: any[];
+  posts: post;
+  isEdit: boolean = false;
 
-  constructor(private dataService:DataService) { 
+  constructor(private dataService: DataService) { 
     console.log('constructor run ....');
   }
 
@@ -34,50 +33,50 @@ export class UserComponent implements OnInit {
       city : 'zagazig',
       state : 'egypt'
     };
-    this.hobbies = ['history','News','resarch'];
+    this.hobbies = ['history', 'News', 'resarch'];
 
     this.dataService.getPosts().subscribe((posts) => {
         this.posts = posts;
     });
     // test jquery -----------
-    $('ul li a').on('click',function(){
-      alert();
-    });
-    //-----------------------
+    // $('ul li a').on('click', function(){
+    //   alert();
+    // });
+    // test jquery --------------
 
   }
 
-  onclick (){
+  onclick () {
     this.hobbies.push ('New hobby');
   }
 
-  addHobby (hobby){
-    //this.hobbies.push (hobby);
+  addHobby (hobby) {
+    // this.hobbies.push (hobby);
     this.hobbies.unshift (hobby);
     return false;
   }
 
   deleteHobby (hobby){
-    for (let i = 0; i < this.hobbies.length; i++){
-      if(this.hobbies[i] == hobby){
+    for (let i = 0; i < this.hobbies.length; i++) {
+      if(this.hobbies[i] === hobby) {
          this.hobbies.splice (i, 1);
       }
     }
   }
 
-  toggleEdit(){
+  toggleEdit() {
     this.isEdit = !this.isEdit;
   }
 }
 
 interface Address {
-  street:string,
-  city:string,
-  state:string
+  street: string;
+  city: string;
+  state: string;
 }
-interface post {
-  id:number,
-  title:string,
-  body:string,
-  userId:number
+interface post  {
+  id:  number;
+  title: string;
+  body: string;
+  userId: number;
 }
