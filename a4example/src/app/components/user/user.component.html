@@ -1,7 +1,4 @@
 <div class="container">
-
-
-
   <ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
@@ -17,68 +14,65 @@
     </li>
   </ul>
 
-</div>
+  <h1>{{name}}</h1>
+  <ul>
+    <li>Age : {{age}}</li>
+    <li>Email : {{email}}</li>
+    <li>Address : {{address.street}} , {{address.city}} , {{address.state}}</li>
+  </ul>
 
 
-<h1>{{name}}</h1>
-<ul>
-  <li>Age : {{age}}</li>
-  <li>Email : {{email}}</li>
-  <li>Address : {{address.street}} , {{address.city}} , {{address.state}}</li>
-</ul>
+  <a href="#" (click)='onclick()'>Click me</a>
+  <a href="#" (click)='toggleEdit()'>Edit me</a>
+
+  <div *ngIf=isEdit>
+    <h1>Edit User</h1>
+    <form>
+      <div class="input-field">
+        <label for="name">Name: </label>
+        <input type="text" [(ngModel)]='name' name='name'>
+      </div>
+      <div class="input-field">
+          <label for="age">Age: </label>
+          <input type="number" [(ngModel)]='age' name='age'>
+      </div>
+      <div class="input-field">
+          <label for="emai">Email: </label>
+          <input type="text" [(ngModel)]='email' name='email'>
+      </div>
+      <div class="input-field">
+          <label for="street">Street: </label>
+          <input type="text" [(ngModel)]='address.street' name='street'>
+      </div>
+      <div class="input-field">
+          <label for="city">City: </label>
+          <input type="text" [(ngModel)]='address.city' name='city'>
+      </div>
+      <div class="input-field">
+            <label for="state">State: </label>
+            <input type="text" [(ngModel)]='address.state' name='state'>
+      </div>
+    </form>
+  </div>
 
 
-<a href="#" (click)='onclick()'>Click me</a>
-<a href="#" (click)='toggleEdit()'>Edit me</a>
-
-<div *ngIf=isEdit>
-  <h1>Edit User</h1>
-  <form>
-    <div class="input-field">
-      <label for="name">Name: </label>
-      <input type="text" [(ngModel)]='name' name='name'>
-    </div>
-    <div class="input-field">
-        <label for="age">Age: </label>
-        <input type="number" [(ngModel)]='age' name='age'>
-    </div>
-    <div class="input-field">
-        <label for="emai">Email: </label>
-        <input type="text" [(ngModel)]='email' name='email'>
-    </div>
-    <div class="input-field">
-        <label for="street">Street: </label>
-        <input type="text" [(ngModel)]='address.street' name='street'>
-    </div>
-    <div class="input-field">
-        <label for="city">City: </label>
-        <input type="text" [(ngModel)]='address.city' name='city'>
-    </div>
-    <div class="input-field">
-          <label for="state">State: </label>
-          <input type="text" [(ngModel)]='address.state' name='state'>
+  <h1>Hobbies</h1>
+  <form (submit)='addHobby(hobby.value)'>
+    <div>
+      <label for="hobby">Hobby:</label>
+      <input type="text" #hobby>
     </div>
   </form>
-</div>
 
+  <ul>
+    <li *ngFor = 'let hobby of hobbies; let i = index'>{{i + 1}}: {{hobby}} <a href="#" (click)='deleteHobby(hobby)'>x</a></li>
+  </ul>
 
-<h1>Hobbies</h1>
-<form (submit)='addHobby(hobby.value)'>
-  <div>
-    <label for="hobby">Hobby:</label>
-    <input type="text" #hobby>
+  <h1>posts</h1>
+  <div *ngFor='let post of posts'>
+    <h4>{{post.title}}</h4>
+    <div>{{post.body}}</div>
   </div>
-</form>
-
-<ul>
-  <li *ngFor = 'let hobby of hobbies; let i = index'>{{i + 1}}: {{hobby}} <a href="#" (click)='deleteHobby(hobby)'>x</a></li>
-</ul>
-
-<h1>posts</h1>
-<div *ngFor='let post of posts'>
-  <h4>{{post.title}}</h4>
-  <div>{{post.body}}</div>
 </div>
-
 
 
