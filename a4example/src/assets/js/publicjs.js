@@ -1,6 +1,6 @@
 let publiccorejs = {
     hideprogress:function(){
-        alert();
         $('.progress').fadeOut();
     }
 }
+exports.publiccorejs = publiccorejs;

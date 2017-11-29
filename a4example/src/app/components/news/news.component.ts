@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../../services/data.service';
 
-import * as publiccorejs from '../../../assets/js/publicjs.js';
+import { publiccorejs }  from '../../../assets/js/publicjs.js';
 
 @Component({
   selector: 'app-news',
@@ -21,7 +21,6 @@ export class NewsComponent implements OnInit {
         this.news = news;
         
     });
-    debugger;
     publiccorejs.hideprogress();
   }
   goDetails(id){
