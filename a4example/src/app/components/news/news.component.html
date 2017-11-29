@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12 m12" *ngFor="let new of news">
+      <div class="card">
+        <div class="card-image">
+          <a routerLink='/newsDetails' class="card-title" (click)='goDetails(new.id)'>{{new.title}}</a>
+        </div>
+        <div class="card-content">
+          <p>{{new.body}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -19,11 +19,15 @@ import { HeaderComponent } from './templete/header/header.component';
 import { FooterComponent } from './templete/footer/footer.component';
 import { MenuComponent } from './templete/menu/menu.component';
 import { MapComponent } from './components/map/map.component';
+import { NewsComponent } from './components/news/news.component';
+import { NewsDetailsComponent } from './components/news-details/news-details.component';
 
 const appRoutes : Routes = [
   { path:'User',component: UserComponent},
   {path:'about',component: AboutComponent},
-  { path: 'map', component: MapComponent }
+  { path: 'map', component: MapComponent },
+  { path: 'news', component: NewsComponent },
+  { path: 'newsDetails', component: NewsDetailsComponent }
 ];
 
 
@@ -35,7 +39,9 @@ const appRoutes : Routes = [
     HeaderComponent,
     FooterComponent,
     MenuComponent,
-    MapComponent
+    MapComponent,
+    NewsComponent,
+    NewsDetailsComponent
   ],
   imports: [
     BrowserModule,

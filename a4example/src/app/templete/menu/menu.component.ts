@@ -9,7 +9,7 @@ import * as $ from 'jquery';
 })
 export class MenuComponent implements OnInit {
 
-  routeNames = ['User', 'about', 'map'];
+  routeNames = ['User', 'about', 'map','news'];
   
   constructor() { }
 
