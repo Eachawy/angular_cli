@@ -11,28 +11,29 @@ import { Console } from '@angular/core/src/console';
 export class NewsDetailsComponent implements OnInit {
 
   newsDetails: Newdetails;
+  comments: Comment;
   constructor(private dataservice: DataService) {
   }
 
   ngOnInit() {
-    //console.log(this.dataservice.idNews);
-    //this.dataservice.idNews = 2;
+    if (typeof (Storage) !== "undefined") {
+      this.dataservice.idNews = localStorage.getItem("NDet");
+    }
     this.dataservice.getPosts().subscribe((news) => {
       this.newsDetails = news;
     });
-
-
-    function isPostBack() {
-
-      return document.referrer.indexOf(document.location.href) > 0;
-    }
-
-    if (isPostBack()) {
-      document.write('<span style="color:red;">Your search returned no results.</span><br/>');
-    }
-
+    this.dataservice.getcomments().subscribe((comments) => {
+      this.comments = comments;
+    });
   }
+}
 
+interface Comment {
+  postId: number;
+  id: number;
+  name: string;
+  email: string;
+  body: string;
 }
 
 interface Newdetails {

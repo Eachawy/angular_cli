@@ -24,6 +24,12 @@ export class NewsComponent implements OnInit {
     this.dataservice.idNews = id;
     localStorage.setItem("NDet", id);
   }
+
+  postdata(){
+    this.dataservice.postposts().subscribe((Pdt) => {
+      console.log(Pdt);
+    });
+  }
 }
 
 interface New {

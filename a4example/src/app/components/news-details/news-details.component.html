@@ -11,4 +11,21 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <ul class="collection">
+      <li class="collection-item avatar" *ngFor="let comm of comments">
+        <i class="material-icons circle red">play_arrow</i>
+        <span class="title">{{comm.name}}</span>
+        <p>{{comm.email}}
+          <br>{{comm.body}}
+        </p>
+        <a href="#!" class="secondary-content">
+          <i class="material-icons">grade</i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
 </div>
