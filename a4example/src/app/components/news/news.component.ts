@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../../services/data.service';
 
+import * as publiccorejs from '../../../assets/js/publicjs.js';
 
 @Component({
   selector: 'app-news',
@@ -12,13 +13,16 @@ export class NewsComponent implements OnInit {
 
   news : New;
 
-  constructor (private dataservice: DataService) { }
+  constructor(private dataservice: DataService ) { }
 
   ngOnInit() {
     this.dataservice.idNews = undefined;
     this.dataservice.getPosts().subscribe((news) => {
         this.news = news;
+        
     });
+    debugger;
+    publiccorejs.hideprogress();
   }
   goDetails(id){
     this.dataservice.idNews = id;
