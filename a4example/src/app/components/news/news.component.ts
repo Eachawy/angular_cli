@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
 import { DataService } from '../../services/data.service';
 
-import { publiccorejs }  from '../../../assets/js/publicjs.js';
+//import { publiccorejs }  from '../../../assets/js/publicjs.js';
+import '../../../assets/js/publicjs.js';
+declare var publiccorejs: any;
+
+
 
 @Component({
   selector: 'app-news',
@@ -19,9 +22,9 @@ export class NewsComponent implements OnInit {
     this.dataservice.idNews = undefined;
     this.dataservice.getPosts().subscribe((news) => {
         this.news = news;
-        
+        publiccorejs.hideprogress(); 
     });
-    publiccorejs.hideprogress();
+    
   }
   goDetails(id){
     this.dataservice.idNews = id;
