@@ -25,7 +25,9 @@ export class DataService {
       "body": "Eachawy Eachawy"
     }}).map(res => res.json());
   }
-
+  getphotos() {
+    return this.http.get('https://jsonplaceholder.typicode.com/photos').map(res => res.json());
+  }
   
 
 }

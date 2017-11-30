@@ -21,13 +21,15 @@ import { MenuComponent } from './templete/menu/menu.component';
 import { MapComponent } from './components/map/map.component';
 import { NewsComponent } from './components/news/news.component';
 import { NewsDetailsComponent } from './components/news-details/news-details.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 const appRoutes : Routes = [
   { path:'User',component: UserComponent},
   {path:'about',component: AboutComponent},
   { path: 'map', component: MapComponent },
   { path: 'news', component: NewsComponent },
-  { path: 'newsDetails', component: NewsDetailsComponent }
+  { path: 'newsDetails', component: NewsDetailsComponent },
+  { path: 'Gallery', component: GalleryComponent }
 ];
 
 
@@ -41,7 +43,8 @@ const appRoutes : Routes = [
     MenuComponent,
     MapComponent,
     NewsComponent,
-    NewsDetailsComponent
+    NewsDetailsComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
