@@ -7,6 +7,7 @@ import { MaterializeModule } from 'angular2-materialize';
 
 // Services
 import { DataService } from './services/data.service';
+import { UserService } from './services/User.service';
 // Router
 import { Route } from '@angular/router/src/config';
 // Auth guard
@@ -28,14 +29,14 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginComponent } from './login/login.component';
 
 const appRoutes : Routes = [
-  { path:'User',component: UserComponent},
-  { path:'about',component: AboutComponent},
-  { path: 'map', component: MapComponent },
-  { path: '', component: LoginComponent },
-  { path: 'news', canActivate: [AuthGuard] , component: NewsComponent },
-  { path: 'newsDetails', component: NewsDetailsComponent },
-  { path: 'Gallery', component: GalleryComponent },
-  { path: '**', component: NotfoundComponent }
+    { path: '', component: LoginComponent },
+    { path:'User', canActivate: [AuthGuard],component: UserComponent},
+    { path:'about', canActivate: [AuthGuard],component: AboutComponent},
+    { path: 'map', canActivate: [AuthGuard], component: MapComponent },
+    { path: 'news', canActivate: [AuthGuard] , component: NewsComponent },
+    { path: 'newsDetails', canActivate: [AuthGuard], component: NewsDetailsComponent },
+    { path: 'Gallery', canActivate: [AuthGuard], component: GalleryComponent },
+    { path: '**', canActivate: [AuthGuard], component: NotfoundComponent }
   ];
 
 
@@ -64,7 +65,7 @@ const appRoutes : Routes = [
       apiKey: 'AIzaSyAfvVTUL0KjvSlqPUCZt_QL_C_zz4OYfVY'
     })
   ],
-  providers: [DataService, AuthGuard],
+  providers: [DataService, AuthGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
