@@ -9,6 +9,8 @@ import { MaterializeModule } from 'angular2-materialize';
 import { DataService } from './services/data.service';
 // Router
 import { Route } from '@angular/router/src/config';
+// Auth guard
+import { AuthGuard } from './auth.guard';
 // google map
 import { AgmCoreModule } from '@agm/core';
 // Components
@@ -22,15 +24,19 @@ import { MapComponent } from './components/map/map.component';
 import { NewsComponent } from './components/news/news.component';
 import { NewsDetailsComponent } from './components/news-details/news-details.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes : Routes = [
   { path:'User',component: UserComponent},
-  {path:'about',component: AboutComponent},
+  { path:'about',component: AboutComponent},
   { path: 'map', component: MapComponent },
-  { path: 'news', component: NewsComponent },
+  { path: '', component: LoginComponent },
+  { path: 'news', canActivate: [AuthGuard] , component: NewsComponent },
   { path: 'newsDetails', component: NewsDetailsComponent },
-  { path: 'Gallery', component: GalleryComponent }
-];
+  { path: 'Gallery', component: GalleryComponent },
+  { path: '**', component: NotfoundComponent }
+  ];
 
 
 @NgModule({
@@ -44,7 +50,9 @@ const appRoutes : Routes = [
     MapComponent,
     NewsComponent,
     NewsDetailsComponent,
-    GalleryComponent
+    GalleryComponent,
+    NotfoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +64,7 @@ const appRoutes : Routes = [
       apiKey: 'AIzaSyAfvVTUL0KjvSlqPUCZt_QL_C_zz4OYfVY'
     })
   ],
-  providers: [DataService],
+  providers: [DataService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
