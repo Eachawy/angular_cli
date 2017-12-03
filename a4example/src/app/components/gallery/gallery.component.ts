@@ -9,12 +9,12 @@ import { DataService } from '../../services/data.service';
 })
 export class GalleryComponent implements OnInit {
 
-  photos : Photo;
+  Photos : Photo;
   constructor(private dataservice: DataService) { }
 
   ngOnInit() {
     this.dataservice.getphotos().subscribe((photo) => {
-        this.photos = photo;
+      this.Photos = photo;
     });
   }
 
