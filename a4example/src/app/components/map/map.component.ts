@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DataService } from '../../services/data.service'
+
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -11,13 +14,31 @@ export class MapComponent implements OnInit {
   lat: number = 51.678418;
   lng: number = 7.809007;
   sty: any [];
+  userobj: Users;
+  markers: marker []= [
+    {
+      lat: 51.673858,
+      lng: 7.815982
+    },
+    {
+      lat: 51.373858,
+      lng: 7.215982
+    },
+    {
+      lat: 51.723858,
+      lng: 7.895982
+    }
+  ]
 
-
-
-
-  constructor() { }
+  constructor(private dataservies: DataService) { }
 
   ngOnInit() {
+
+    this.dataservies.getgeo().subscribe(geog => {
+      this.userobj = geog;
+      console.log(this.userobj);
+    })
+
     this.sty = [
       {
         "featureType": "all",
@@ -400,4 +421,17 @@ export class MapComponent implements OnInit {
     ]
   }
 
+}
+
+interface Users {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: string;
+}
+
+interface marker {
+  lat: number,
+  lng: number
 }

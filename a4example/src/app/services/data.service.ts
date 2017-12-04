@@ -28,7 +28,9 @@ export class DataService {
   getphotos() {
     return this.http.get('https://jsonplaceholder.typicode.com/photos').map(res => res.json());
   }
-  
+  getgeo(){
+    return this.http.get('https://jsonplaceholder.typicode.com/users').map(res=> res.json());
+  }
 
 }
 

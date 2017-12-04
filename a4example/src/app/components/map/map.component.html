@@ -1,3 +1,16 @@
 <agm-map [latitude]="lat" [longitude]="lng" [styles]="sty">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+
+  <agm-marker
+   *ngFor="let mark of markers" 
+   [latitude]="mark.lat" 
+   [longitude]="mark.lng" >
+    <agm-snazzy-info-window [isOpen]="false" [maxWidth]="200" [closeWhenOthersOpen]="true">
+      <ng-template>
+        <div>
+          {{mark.lat}} -- {{mark.lng}}
+        </div>
+      </ng-template>
+    </agm-snazzy-info-window>
+  </agm-marker>
+
 </agm-map>

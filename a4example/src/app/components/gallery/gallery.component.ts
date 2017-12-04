@@ -13,7 +13,7 @@ export class GalleryComponent implements OnInit {
   constructor(private dataservice: DataService) { }
 
   ngOnInit() {
-    this.dataservice.getphotos().subscribe((photo) => {
+    this.dataservice.getphotos().subscribe(photo => {
       this.Photos = photo;
     });
   }

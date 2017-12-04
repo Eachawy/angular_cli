@@ -14,6 +14,7 @@ import { Route } from '@angular/router/src/config';
 import { AuthGuard } from './auth.guard';
 // google map
 import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 // Components
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
@@ -63,7 +64,8 @@ const appRoutes : Routes = [
     MaterializeModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAfvVTUL0KjvSlqPUCZt_QL_C_zz4OYfVY'
-    })
+    }),
+    AgmSnazzyInfoWindowModule
   ],
   providers: [DataService, AuthGuard, UserService],
   bootstrap: [AppComponent]
